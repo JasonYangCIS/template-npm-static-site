@@ -1,0 +1,1 @@
+# template-npm-static-site

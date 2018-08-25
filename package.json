@@ -1,0 +1,27 @@
+{
+    "name": "yang-jason",
+    "version": "1.0.0",
+    "description": "Build for Jason Yang",
+    "author": "jasonyangdev",
+    "license": "jasonyangdev",
+    "main": "index.html",
+    "scripts": {
+        "scss": "node-sass -r --output-style compressed -o css development/scss",
+        "uglifyjs-folder": "uglifyjs-folder development/js/ -o js/script.js",
+        "serve": "browser-sync start --server --files 'development/scss/*.css, development/js/*.js'",
+        "build:css": "npm run scss",
+        "build:js": "npm run uglifyjs-folder",
+        "build:all": "npm run build:css && npm run build:js",
+        "watch:css": "onchange \"development/scss\" -- npm run build:css",
+        "watch:js": "onchange \"development/js\" -- npm run build:js",
+        "watch:all": "npm-run-all -p serve watch:css watch:js",
+        "start": "npm run build:all && npm run watch:all"
+    },
+    "devDependencies": {
+        "node-sass": "^4.5.0",
+        "browser-sync": "^2.18.8",
+        "npm-run-all": "^4.0.2",
+        "onchange": "^3.2.1",
+        "uglifyjs-folder": "^1.1.0"
+    }
+}
